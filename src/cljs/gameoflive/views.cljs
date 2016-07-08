@@ -3,8 +3,10 @@
 
 (defn cell [y x alive?]
   [:div {:key      [x y]
-         :class    (str "cell " (if alive? "alive" "dead"))
-         :on-click #(re-frame/dispatch [:toggle x y])}])
+         :class    "cell"
+         :on-click #(re-frame/dispatch [:toggle x y])}
+   [:div {:class (if alive? "alive" "dead")}]]
+  )
 
 (defn line [y l]
   [:div {:key   y
@@ -18,7 +20,7 @@
        (map-indexed line @b)])))
 
 (defn main-panel []
-  (let [name (re-frame/subscribe [:name])]
+  (let [counter (re-frame/subscribe [:counter])]
     (fn []
       [:div
        [:div
@@ -29,4 +31,5 @@
        [:div
         [:button {:on-click #(re-frame/dispatch [:step])} "|>"]
         [:button {:on-click #(re-frame/dispatch [:play])} ">"]
-        [:button {:on-click #(re-frame/dispatch [:stop])} "||"]]])))
+        [:button {:on-click #(re-frame/dispatch [:stop])} "||"]
+        [:span (str "Round: " @counter)]]])))

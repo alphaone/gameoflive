@@ -1,9 +1,12 @@
 (ns gameoflive.db)
 
-(def a true)
-(def d false)
+(def initial-x 60)
+(def initial-y 30)
 
 (def default-db
-  {:name  "re-frame"
+  {:count 0
    :to    nil
-   :board (vec (repeat 10 (vec (repeat 10 false))))})
+   :board (->> (repeat initial-x false)
+               vec
+               (repeat initial-y)
+               vec)})
