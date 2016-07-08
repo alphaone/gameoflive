@@ -24,7 +24,8 @@
     (fn []
       [:div
        [:div
-        [:button {:on-click #(re-frame/dispatch [:bigger])} "+"]]
+        [:button {:on-click #(re-frame/dispatch [:random])} "Random"]
+        [:button {:on-click #(re-frame/dispatch [:clear])} "Clear"]]
 
        [board]
 

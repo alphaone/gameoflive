@@ -15,12 +15,16 @@
     (inc old-count)))
 
 (re-frame/register-handler
-  :bigger
+  :random
   (re-frame/path :board)
-  (fn [board _]
-    (let [width (count (first board))]
-      (conj (vec (map #(conj % false) board))
-            (vec (repeat (inc width) false))))))
+  (fn [old-board _]
+    (map (fn [l] (map #(= 0 (rand-int 2)) l)) old-board)))
+
+(re-frame/register-handler
+  :clear
+  (re-frame/path :board)
+  (fn [old-board _]
+    (map (fn [l] (map (constantly false) l)) old-board)))
 
 (re-frame/register-handler
   :toggle

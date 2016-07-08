@@ -22,7 +22,7 @@
                        :height           "50%"
                        :width            "50%"
                        :margin           "25%"
-                       :transition       "all 0.5s cubic-bezier(.87,-.41,.19,1.44)" ;
+                       :transition       "all 0.25s cubic-bezier(.87,-.41,.19,1.44)" ;
                        :background-color "#f0f0f0"}]]]
            [:button {:margin  "5px"
                      :padding "4px 20px"}]
