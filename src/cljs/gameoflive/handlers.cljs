@@ -18,13 +18,13 @@
   :random
   (re-frame/path :board)
   (fn [old-board _]
-    (map (fn [l] (map #(= 0 (rand-int 2)) l)) old-board)))
+    (vec (map (fn [l] (vec (map #(= 0 (rand-int 2)) l))) old-board))))
 
 (re-frame/register-handler
   :clear
   (re-frame/path :board)
   (fn [old-board _]
-    (map (fn [l] (map (constantly false) l)) old-board)))
+    (vec (map (fn [l] (vec (map (constantly false) l))) old-board))))
 
 (re-frame/register-handler
   :toggle

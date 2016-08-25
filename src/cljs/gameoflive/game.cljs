@@ -14,8 +14,7 @@
       (< 3 alive-neighbors) false
       (= 3 alive-neighbors) true
       (> 2 alive-neighbors) false
-      :else current
-      )))
+      :else current)))
 
 (defn advance-cell [board [x y]]
   (will-live? (neighbors board [x y]) (-> board (nth y) (nth x))))
